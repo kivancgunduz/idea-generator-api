@@ -1,5 +1,3 @@
-import os
-from re import X
 import openai
 import requests
 from decouple import config 
