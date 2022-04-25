@@ -1,6 +1,7 @@
 import os
 import openai
 # ? from utils import preprocessing 
+import requests
 
 
 class Generator():
@@ -79,7 +80,7 @@ class Generator():
                 """
                 use process_hmw() to generate ideas
                 """
-                return
+                return # self.idea_list:list = [] ?
             elif self.workshop_method is "Opposite thinking":
                 """
                 use process_opposite () to generate ideas
@@ -103,10 +104,24 @@ class Generator():
 
             # @TODO: Add a try catch block for this function. 
 
+ # r = requests.post("https://api.openai.com/v1/engines/{engine_id}/completions", data = payload)
 
-    # def _completion(question, engine="ada", max_tokens=64, temperature=0.7, top_p=1, stop=None, presence_penalty=0, frequency_penalty=0, echo=False, n=1, stream=False, logprobs=None, best_of=1, logit_bias={}):
+# payload = 
+#  {
+#   "question": "Say this is a test",
+#   "max_tokens": 5,
+#   "temperature": 1,
+#   "top_p": 1,
+#   "n": 1,
+#   "stop": "\n"
+#    }
+
+
+
+
+    # def _completion(question, engine="ada", max_tokens=64, temperature=0.7, top_p=1, stop=None, presence_penalty=0, frequency_penalty=0, n=1):
     # logger.debug("""CONFIG:
-    # Prompt: {0}
+    # Question: {0}
     # Temperature: {1}
     # Engine: {2}
     # Max Tokens: {3}
@@ -114,31 +129,21 @@ class Generator():
     # Stop: {5}
     # Presence Penalty {6}
     # Frequency Penalty: {7}
-    # Echo: {8}
-    # N: {9}
-    # Stream: {10}
-    # Log-Probs: {11}
-    # Best Of: {12}
-    # Logit Bias: {13}"""
-    #              .format(repr(prompt), temperature, engine, max_tokens, top_p, stop, presence_penalty, frequency_penalty, echo, n, stream, logprobs, best_of, logit_bias))
+    # N: {8}"""
+    #              .format(repr(question), temperature, engine, max_tokens, top_p, stop, presence_penalty, frequency_penalty, n))
 
 
-    
+
     # response = openai.Completion.create(engine=engine,
-    #                                     prompt=prompt,
+    #                                     question=question,
     #                                     max_tokens=max_tokens,
     #                                     temperature=temperature,
     #                                     top_p=top_p,
     #                                     presence_penalty=presence_penalty,
     #                                     frequency_penalty=frequency_penalty,
-    #                                     echo=echo,
     #                                     stop=stop,
-    #                                     n=n,
-    #                                     stream=stream,
-    #                                     logprobs=logprobs,
-    #                                     best_of=best_of,
-    #                                     logit_bias=logit_bias)
+    #                                     n=n, #self.number_of_idea:int = number_of_idea
+    #                                     )
     # logger.debug("GPT-3 Completion Result: {0}".format(response))
     # return response
 
-        
