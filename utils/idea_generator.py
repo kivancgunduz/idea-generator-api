@@ -1,5 +1,6 @@
 import os
 import openai
+# ? from utils import preprocessing 
 
 
 class Generator():
@@ -12,11 +13,14 @@ class Generator():
         :param question: A question that user want to ask.
         :param number_of_idea: Number of idea that user want to get.
         :param enhaced: A boolean value that indicate if user want to get enhaced idea or not.
+        ? :param crazy: A boolean value that indicate if user want to get an unusual suggestions or a more normal one.
         :param workshop_method: A string value that indicate which workshop method user want to use.
         """
-        self.question:str = question
+        #self.question:str = question
+        self.output_data:str = question #?? from pre-processing or direct from user interface
         self.number_of_idea:int = number_of_idea
         self.enhaced:bool = enhaced
+        # self.crazy:bool = crazy
         self.workshop_method:str = workshop_method
         self.idea_list:list = []
         self.idea_list_enhaced:list = []
@@ -38,7 +42,7 @@ class Generator():
 
     def generate_idea(self) -> bool:
         """
-        A Funtion that generate idea for user based GPT-3 API.
+        A Funtion that generate idea for user based on GPT-3 API.
         :return: None
         """
         if self.connect_openai():
@@ -56,8 +60,85 @@ class Generator():
                 """
 
                 # @TODO: Add a try catch block for this function. @gio
+
+            # if self.crazy:
+            #     """
+            #     If user want to get user want to get an unusual suggestions, then generate idea with crazy parameter.
+            #     """
+            #     # @TODO: Add a try catch block for this function. @gio
+            # else:
+            #     """
+            #     If user want to get normal idea, then generate idea with normal parameter.
+            #     """
+
+            #     # @TODO: Add a try catch block for this function. @gio
         else:
             pass
 
+            if self.workshop_method is "How might we ... ?":
+                """
+                use process_hmw() to generate ideas
+                """
+                return
+            elif self.workshop_method is "Opposite thinking":
+                """
+                use process_opposite () to generate ideas
+                """
+                return
+            elif self.workshop_method is "What is the worst possible idea about ...?":
+                """
+                use process_bad_idea () to generate ideas
+                """
+                return
+            elif self.workshop_method is "Ask any question!":
+                """
+                use process_free_text() to generate ideas
+                """
+                return
+            else:
+                # default to "Ask any question!"
+                return
+
+            return
+
+            # @TODO: Add a try catch block for this function. 
+
+
+    # def _completion(question, engine="ada", max_tokens=64, temperature=0.7, top_p=1, stop=None, presence_penalty=0, frequency_penalty=0, echo=False, n=1, stream=False, logprobs=None, best_of=1, logit_bias={}):
+    # logger.debug("""CONFIG:
+    # Prompt: {0}
+    # Temperature: {1}
+    # Engine: {2}
+    # Max Tokens: {3}
+    # Top-P: {4}
+    # Stop: {5}
+    # Presence Penalty {6}
+    # Frequency Penalty: {7}
+    # Echo: {8}
+    # N: {9}
+    # Stream: {10}
+    # Log-Probs: {11}
+    # Best Of: {12}
+    # Logit Bias: {13}"""
+    #              .format(repr(prompt), temperature, engine, max_tokens, top_p, stop, presence_penalty, frequency_penalty, echo, n, stream, logprobs, best_of, logit_bias))
+
+
+    
+    # response = openai.Completion.create(engine=engine,
+    #                                     prompt=prompt,
+    #                                     max_tokens=max_tokens,
+    #                                     temperature=temperature,
+    #                                     top_p=top_p,
+    #                                     presence_penalty=presence_penalty,
+    #                                     frequency_penalty=frequency_penalty,
+    #                                     echo=echo,
+    #                                     stop=stop,
+    #                                     n=n,
+    #                                     stream=stream,
+    #                                     logprobs=logprobs,
+    #                                     best_of=best_of,
+    #                                     logit_bias=logit_bias)
+    # logger.debug("GPT-3 Completion Result: {0}".format(response))
+    # return response
 
         

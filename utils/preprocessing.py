@@ -8,6 +8,9 @@ class Preprocessing():
     depending on the workshop method selected
     return : json ?(str?)
     """
+    #     workshop_method = data['workshop_method']
+
+
 
     def __init__(self, input_data:str):
         """
