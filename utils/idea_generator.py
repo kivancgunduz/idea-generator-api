@@ -20,7 +20,7 @@ class Generator():
         self.number_of_idea:int = number_of_idea
         self.crazy:bool = crazy
         self.workshop_method:str = workshop_method
-        self.raw_result:str = None
+        self.raw_result:dict = None
         self.idea_list:list = []
         self.idea_list_enhaced:list = []
         self.api_key:str = None
