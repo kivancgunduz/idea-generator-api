@@ -4,11 +4,6 @@ from decouple import config
 import random
 import re
 
-
-# https://able.bio/rhett/how-to-set-and-get-environment-variables-in-python--274rgt5
-# make .env file without name then write inside .env: API_KEY=sk..
-# and call with config
-
 openai.api_key= config('API_KEY_MIRO')
 board_id = "uXjVO6mflkg="
 url = f'https://api.miro.com/v1/boards/{board_id}/widgets/'
