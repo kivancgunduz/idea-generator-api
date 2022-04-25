@@ -1,0 +1,28 @@
+payload = {
+"hmv": {
+  "max_tokens": 5,
+  "temperature": 1,
+  "top_p": 1,
+  "stop": "\n"
+     },
+	 
+"opposite": {
+  "max_tokens": 5,
+  "temperature": 1,
+  "top_p": 1,
+  "stop": "\n"
+     },
+	 
+"bad": {
+  "max_tokens": 5,
+  "temperature": 1,
+  "top_p": 1,
+  "stop": "\n"
+     },
+	 
+"free": {
+  "max_tokens": 5,
+  "temperature": 1,
+  "top_p": 1,
+  "stop": "\n"
+     },
