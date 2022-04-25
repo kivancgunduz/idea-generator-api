@@ -47,7 +47,7 @@ print(get_card)
 # to import the list to idea generator -> from app import get_card
 
 # if you want to try, build apps by https://miro.com/app/settings/user-profile/apps
-# Click all the columns in Permission -> All plans -> Install App and get OAuth token
+# Click all the columns in Permission -> All plans -> Install App and get OAuth token. Save the token in your .env
 # Then create a new board https://miro.com/app/dashboard/ and get the board id by looking at the URL. Example : https://miro.com/app/board/uXjVO6Gtjss=/
 # Then the board id is uXjVO6Gtjss= 
 
