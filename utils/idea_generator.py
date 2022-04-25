@@ -73,5 +73,5 @@ class Generator():
             
 
             
-gen = Generator("Cook", 10, "hmw", False)
-gen.generate_idea()
+#gen = Generator("Cook", 10, "hmw", False)
+#gen.generate_idea()
