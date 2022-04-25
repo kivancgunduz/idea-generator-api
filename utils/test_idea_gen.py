@@ -1,6 +1,6 @@
 import os
 import openai
-from utils import preprocessing 
+import preprocessing
 import requests
 
 
@@ -8,7 +8,7 @@ class Generator():
     """
     A Class that generate idea for user based GPT-3 API.
     """
-    def __init__(self, prepared_question:str, number_of_idea: int, workshop_method:str, crazy:bool = False) -> None:
+    def __init__(self, prepared_question:str, number_of_idea: int, crazy:bool = False) -> None:
         """
         A constructor function for Generator class.
         :param prepared_question: A question that user want to ask.
@@ -19,7 +19,7 @@ class Generator():
         self.prepared_question:str = prepared_question
         self.number_of_idea:int = number_of_idea
         self.crazy:bool = crazy
-        self.workshop_method:str = workshop_method
+        #self.workshop_method:str = workshop_method   workshop_method:str
         self.idea_list:list = []
         self.idea_list_enhaced:list = []
         self.api_key:str = os.getenv('OPENAI_API_KEY')
@@ -41,29 +41,34 @@ class Generator():
         A Funtion that generate idea for user based on GPT-3 API.
         :return: None
         """
-        if self.connect_openai():
-            """
-            If api connection is created, then generate idea.
-            """
-        if self.crazy:
-            """
-            If user want to get enhaced idea, then generate idea with enhaced parameter.
-            """
-        else:
-            """
-            If user want to get normal idea, then generate idea with normal parameter.
-            """ 
-            pass
+        # if self.connect_openai():
+        #     """
+        #     If api connection is created, then generate idea.
+        #     """
+        # if self.crazy:
+        #     """
+        #     If user want to get enhaced idea, then generate idea with enhaced parameter.
+        #     """
+        # else:
+        #     """
+        #     If user want to get normal idea, then generate idea with normal parameter.
+        #     """ 
+        #     pass
 
-    payload =  {
-            "prompt": self.prepared_question,
-            "max_tokens": 5,
-            "temperature": 1,
-            "top_p": 1,
-            "n": self.number_of_idea,
-            "stop": "\n"
-            }
+        payload =  {
+                "prompt": self.prepared_question,
+                "max_tokens": 5,
+                "temperature": 1,
+                "top_p": 1,
+                "n": self.number_of_idea,
+                "stop": "\n"
+                }
 
-r = requests.post("https://api.openai.com/v1/engines/{engine_id}/completions", data = payload)
+        r = requests.post("https://api.openai.com/v1/engines/ada/completions", data=payload)
+        print(r.status_code)
 
+
+if __name__ == "__main__":
+    generator = Generator("how might we chill?",number_of_idea=3)
+    generator.generate_idea()
 
