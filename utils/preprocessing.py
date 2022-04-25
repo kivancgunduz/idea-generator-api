@@ -15,8 +15,8 @@ class Preprocessing():
     def __init__(self, input_data:str):
         """
         Initializes the preprocessing class.
-        :param data_dir: The directory of the data.
-        :param output_dir: The directory of the output.
+        :param intput_data: The directory of the data.
+        :param output_data: The output data.
         """
         self.input_data:str = input_data
         self.output_data:str = None

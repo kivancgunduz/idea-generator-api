@@ -30,7 +30,7 @@ def create_idea():
     data = request.get_json()
     raw_question = data['question']
     quantity = data['quantity']
-    enhaced = data['enhaced']
+    isCrazy = data['isCrazy']
     workshop_method = data['workshop_method']
     
 # the below try except handle also the empty input from user, so we should always have a text gpt3
@@ -39,12 +39,20 @@ def create_idea():
         prepocessing = Preprocessing(input_data=raw_question)
     except ValueError as e:
         return jsonify({"Error" : e}), 400
+    else:
+        if workshop_method == "hmw": prepocessing.process_hmw()
+        elif workshop_method == "opposite": prepocessing.process_opposite()
+        elif workshop_method == "bad idea": prepocessing.process_bad_idea()
+        elif workshop_method == "free text": prepocessing.process_free_text()
 
-    #if (prepocessing.prepare_question()): > this we do not need anymore
-    prepered_question = prepocessing.output_data
-    generator = Generator(question=prepered_question, number_of_idea=quantity, enhaced=enhaced, workshop_method=workshop_method)
+    if not prepocessing.output_data:
+        prepered_question = f'Suggest 10 ideas for "{raw_question}"'
+    else:
+        prepered_question = prepocessing.output_data
+    
+    generator = Generator(question=prepered_question, number_of_idea=quantity, crazy=isCrazy, workshop_method=workshop_method)
     if (generator.generate_idea()):
-        if (enhaced):
+        if (isCrazy):
             idea_list = generator.idea_list_enhaced
             return jsonify({'idea_list': idea_list}), 200
         else:
