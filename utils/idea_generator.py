@@ -8,20 +8,17 @@ class Generator():
     """
     A Class that generate idea for user based GPT-3 API.
     """
-    def __init__(self, question:str, number_of_idea: int, workshop_method:str, enhaced:bool = False) -> None:
+    def __init__(self, prepared_question:str, number_of_idea: int, workshop_method:str, crazy:bool = False) -> None:
         """
         A constructor function for Generator class.
-        :param question: A question that user want to ask.
+        :param prepared_question: A question that user want to ask.
         :param number_of_idea: Number of idea that user want to get.
-        :param enhaced: A boolean value that indicate if user want to get enhaced idea or not.
-        ? :param crazy: A boolean value that indicate if user want to get an unusual suggestions or a more normal one.
+        :param crazy: A boolean value that indicate if user want to get an unusual suggestions or a more normal one.
         :param workshop_method: A string value that indicate which workshop method user want to use.
         """
-        #self.question:str = question
-        self.output_data:str = question #?? from pre-processing or direct from user interface
+        self.prepared_question:str = prepared_question
         self.number_of_idea:int = number_of_idea
-        self.enhaced:bool = enhaced
-        # self.crazy:bool = crazy
+        self.crazy:bool = crazy
         self.workshop_method:str = workshop_method
         self.idea_list:list = []
         self.idea_list_enhaced:list = []
@@ -73,36 +70,36 @@ class Generator():
             #     """
 
             #     # @TODO: Add a try catch block for this function. @gio
-        else:
-            pass
+        # else:
+        #     pass
 
-            if self.workshop_method is "How might we ... ?":
-                """
-                use process_hmw() to generate ideas
-                """
-                return # self.idea_list:list = [] ?
-            elif self.workshop_method is "Opposite thinking":
-                """
-                use process_opposite () to generate ideas
-                """
-                return
-            elif self.workshop_method is "What is the worst possible idea about ...?":
-                """
-                use process_bad_idea () to generate ideas
-                """
-                return
-            elif self.workshop_method is "Ask any question!":
-                """
-                use process_free_text() to generate ideas
-                """
-                return
-            else:
-                # default to "Ask any question!"
-                return
+        #     if self.workshop_method is "How might we ... ?":
+        #         """
+        #         use process_hmw() to generate ideas
+        #         """
+        #         return # self.idea_list:list = [] ?
+        #     elif self.workshop_method is "Opposite thinking":
+        #         """
+        #         use process_opposite () to generate ideas
+        #         """
+        #         return
+        #     elif self.workshop_method is "What is the worst possible idea about ...?":
+        #         """
+        #         use process_bad_idea () to generate ideas
+        #         """
+        #         return
+        #     elif self.workshop_method is "Ask any question!":
+        #         """
+        #         use process_free_text() to generate ideas
+        #         """
+        #         return
+        #     else:
+        #         # default to "Ask any question!"
+        #         return
 
-            return
+        #     return
 
-            # @TODO: Add a try catch block for this function. 
+        #     # @TODO: Add a try catch block for this function. 
 
  # r = requests.post("https://api.openai.com/v1/engines/{engine_id}/completions", data = payload)
 
@@ -119,7 +116,7 @@ class Generator():
 
 
 
-    # def _completion(question, engine="ada", max_tokens=64, temperature=0.7, top_p=1, stop=None, presence_penalty=0, frequency_penalty=0, n=1):
+    # def _completion(prepared_question, engine="ada", max_tokens=64, temperature=0.7, top_p=1, stop=None, presence_penalty=0, frequency_penalty=0, n=1):
     # logger.debug("""CONFIG:
     # Question: {0}
     # Temperature: {1}

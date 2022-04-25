@@ -1,28 +1,36 @@
 payload = {
 "hmv": {
+  "prompt": self.prepared_question
   "max_tokens": 5,
   "temperature": 1,
   "top_p": 1,
+  "n": self.number_of_idea,
   "stop": "\n"
      },
 	 
 "opposite": {
+  "prompt": self.prepared_question
   "max_tokens": 5,
   "temperature": 1,
   "top_p": 1,
+  "n": self.number_of_idea,
   "stop": "\n"
      },
 	 
 "bad": {
+  "prompt": self.prepared_question
   "max_tokens": 5,
   "temperature": 1,
   "top_p": 1,
+  "n": self.number_of_idea,
   "stop": "\n"
      },
 	 
 "free": {
+  "prompt": self.prepared_question
   "max_tokens": 5,
   "temperature": 1,
   "top_p": 1,
+  "n": self.number_of_idea,
   "stop": "\n"
      },
