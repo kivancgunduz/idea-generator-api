@@ -47,3 +47,7 @@ def get_card() -> list:
 get_card = get_card()
 print(get_card)
 
+
+# it will give a list of the content of post-it-note Miro. 
+# to import the list to idea generator -> from app import get_card
+
