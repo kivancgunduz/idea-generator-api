@@ -130,4 +130,4 @@ dmypy.json
 
 # Api credentials
 
-data/api_credential.json
+data/api_credentials.json
