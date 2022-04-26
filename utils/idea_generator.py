@@ -32,8 +32,8 @@ class Generator():
         :return: A boolean value that indicate if api connection is created or not.
         """
         try:
-            credential = open("data/api_credential.json", "r")
-            self.api_key = eval(credential.read())['api_key']
+            credential = open("data/api_credentials.json", "r")
+            self.api_key = eval(credential.read())['openAI_api_key']
             print(self.api_key)
             openai.api_key = self.api_key
         except openai.exceptions.InvalidAPIKeyError:
