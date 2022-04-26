@@ -64,7 +64,9 @@ class Generator():
             elif self.workshop_method == "free text": self.payload = params_dict['payload']["free"]
             
             #print(self.payload)
-            self.raw_result = openai.Completion.create(engine="text-davinci-002", **self.payload)
+            self.raw_result = openai.Completion.create(**self.payload)
+            #print(self.raw_result)
+            #print(self.raw_result['choices'][0]['text'])
         else:
             """
             If api connection is not created, then return false.
@@ -73,5 +75,5 @@ class Generator():
             
 
             
-#gen = Generator("Cook", 10, "hmw", False)
+#gen = Generator("measure developer performance", 10, "hmw", False)
 #gen.generate_idea()
