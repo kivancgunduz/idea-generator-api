@@ -65,6 +65,8 @@ class Generator():
             
             #print(self.payload)
             self.raw_result = openai.Completion.create(**self.payload)
+
+            self.get_idea_list()
             #print(self.raw_result)
             #print(self.raw_result['choices'][0]['text'])
         else:
@@ -72,6 +74,19 @@ class Generator():
             If api connection is not created, then return false.
             """
             return False
+    
+    def get_idea_list(self) -> list:
+        """
+        A function that get idea list from raw result.
+        :return: A list of idea.
+        """
+        if self.raw_result is not None:
+            for i in range(self.number_of_idea):
+                self.idea_list.append(self.raw_result['choices'][i]['text'])
+                self.idea_list_enhaced.append(self.raw_result['choices'][i]['text'])
+        else:
+            return False
+        return self.idea_list
             
 
             
