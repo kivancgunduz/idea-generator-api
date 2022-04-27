@@ -63,12 +63,10 @@ class Generator():
             elif self.workshop_method == "bad idea": self.payload = params_dict['payload']["bad"]
             elif self.workshop_method == "free text": self.payload = params_dict['payload']["free"]
             
-            #print(self.payload)
+
             self.raw_result = openai.Completion.create(**self.payload)
 
             self.get_idea_list()
-            #print(self.raw_result)
-            #print(self.raw_result['choices'][0]['text'])
         else:
             """
             If api connection is not created, then return false.
@@ -88,7 +86,3 @@ class Generator():
             return False
         return self.idea_list
             
-
-            
-#gen = Generator("measure developer performance", 10, "hmw", False)
-#gen.generate_idea()
