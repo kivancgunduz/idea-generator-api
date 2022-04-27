@@ -1,17 +1,18 @@
 { 
   "payload" : {
                 "hmw": {
-                "prompt": self.prepared_question,
-                "engine": "text-davinci-002" ,
-                "max_tokens": 2048,
-                "temperature": 1,
-                "top_p": 1,
-                "n": self.number_of_idea,
-                "stop": "\n"
+                  "prompt": self.prepared_question,
+                  "engine": "text-davinci-002" ,
+                  "max_tokens": 2048,
+                  "temperature": 1,
+                  "top_p": 1,
+                  "n": self.number_of_idea,
+                  "stop": "\n"
                   },
     
                 "opposite": {
                   "prompt": self.prepared_question,
+                  "engine": "text-davinci-002" ,
                   "max_tokens": 5,
                   "temperature": 1,
                   "top_p": 1,
@@ -22,6 +23,7 @@
                 "bad": {
                   "prompt": self.prepared_question,
                   "max_tokens": 5,
+                  "engine": "text-davinci-002" ,
                   "temperature": 1,
                   "top_p": 1,
                   "n": self.number_of_idea,
@@ -30,8 +32,9 @@
 	 
                 "free": {
                   "prompt": self.prepared_question,
-                  "max_tokens": 5,
-                  "temperature": 1,
+                  "max_tokens": 2048,
+                  "engine": "text-davinci-002" ,
+                  "temperature": 0,
                   "top_p": 1,
                   "n": self.number_of_idea,
                   "stop": "\n"
