@@ -18,6 +18,10 @@ class MiroIntegrator():
         self.headers:dict = None
         self.payload:dict = None
     
+    def create_connection(self, api_key:str, board_id:str) -> bool:
+        """
+        """
+        pass
 
     def create_sticker(self, text:str) -> bool:
         """

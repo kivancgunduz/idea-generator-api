@@ -50,7 +50,7 @@ class Generator():
     def generate_idea(self) -> bool:
         """
         A Funtion that generate idea for user based on GPT-3 API.
-        :return: None
+        :return: A boolean value that indicate if idea is generated or not.
         """
         if self.connect_openai():
             """
