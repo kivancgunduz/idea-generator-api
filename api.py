@@ -50,7 +50,7 @@ def create_idea():
     else:
         prepered_question = prepocessing.output_data
     
-    generator = Generator(question=prepered_question, number_of_idea=quantity, crazy=isCrazy, workshop_method=workshop_method)
+    generator = Generator(prepared_question=prepered_question, number_of_idea=quantity, crazy=isCrazy, workshop_method=workshop_method)
     if (generator.generate_idea()):
         if (isCrazy):
             idea_list = generator.idea_list_enhaced
