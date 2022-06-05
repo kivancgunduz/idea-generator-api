@@ -56,17 +56,24 @@ class Generator():
             """
             If api connection is created, then generate idea.
             """
+            # read parameters from txt file
             read_file = open("data/params_dict.txt", "r")
             params_dict = eval(read_file.read())
-            if self.workshop_method == "hmw": self.payload = params_dict['payload']["hmw"]
-            elif self.workshop_method == "opposite": self.payload = params_dict['payload']["opposite"]
-            elif self.workshop_method == "bad idea": self.payload = params_dict['payload']["bad"]
-            elif self.workshop_method == "free text": self.payload = params_dict['payload']["free"]
+            if self.workshop_method == "hmw": 
+                self.payload = params_dict['payload']["hmw"]
+            elif self.workshop_method == "opposite": 
+                self.payload = params_dict['payload']["opposite"]
+            elif self.workshop_method == "bad idea": 
+                self.payload = params_dict['payload']["bad"]
+            elif self.workshop_method == "free text": 
+                self.payload = params_dict['payload']["free"]
             
-
+            # create a request from openai api
             self.raw_result = openai.Completion.create(**self.payload)
 
+            # get idea list from raw result
             self.get_idea_list()
+            return True
         else:
             """
             If api connection is not created, then return false.
